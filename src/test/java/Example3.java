@@ -15,16 +15,11 @@ public class Example3 {
         try {
 
             Object obj = parser.parse(new FileReader("example3.json"));
-            Map<String,?> responseData = (Map<String, ?>) obj;
-            Map<String,?> feed1= (Map<String, ?>) responseData.get("responseData");
-            String res = feed1.get("feed").toString();
             ObjectMapper objectMapper = new ObjectMapper();
-
-             Feed feed = objectMapper.readValue(res,Feed.class);
-
-            System.out.println(feed.toString());
-
-             responseData.get("responseData");
+            Map<String,?> response = (Map<String, ?>) obj;
+            Response response1 = objectMapper.readValue(response.toString(),Response.class);
+            System.out.println(response1.toString());
+            System.out.println("Done");
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

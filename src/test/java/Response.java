@@ -1,12 +1,21 @@
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
+import java.util.Map;
+
+@JsonRootName("response")
 public class Response {
+    @JsonProperty
     String responseDetails;
-    Feed responseData;
+    @JsonProperty
+    Map<String,Feed> responseData;
+    @JsonProperty
     String responseStatus;
 
     public Response() {
     }
 
-    public Response(String responseDetails, Feed responseData, String responseStatus) {
+    public Response(String responseDetails, Map<String, Feed> responseData, String responseStatus) {
         this.responseDetails = responseDetails;
         this.responseData = responseData;
         this.responseStatus = responseStatus;
@@ -20,11 +29,11 @@ public class Response {
         this.responseDetails = responseDetails;
     }
 
-    public Feed getResponseData() {
+    public Map<String, Feed> getResponseData() {
         return responseData;
     }
 
-    public void setResponseData(Feed responseData) {
+    public void setResponseData(Map<String, Feed> responseData) {
         this.responseData = responseData;
     }
 
