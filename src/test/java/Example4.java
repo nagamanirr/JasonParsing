@@ -1,8 +1,10 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.simple.parser.JSONParser;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Map;
 
 public class Example4 {
     public static void main(String[] args) {
@@ -15,6 +17,11 @@ public class Example4 {
 
           //write code here to print all the type of phone no and the corresponding no
 
+            ObjectMapper objectMapper = new ObjectMapper();
+            Map<String,?> person = (Map<String, ?>) obj;
+            Person person1 = objectMapper.readValue(person.toString(),Person.class);
+            System.out.println(person1.phoneNumber);
+            System.out.println("Done");
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
