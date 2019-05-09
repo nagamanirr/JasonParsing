@@ -12,6 +12,7 @@ public class Example4 {
         try {
             Object obj = parser.parse(new FileReader("example4.json"));
 
+
           //write code here to print all the type of phone no and the corresponding no
 
 

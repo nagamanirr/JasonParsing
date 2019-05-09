@@ -1,5 +1,6 @@
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -20,10 +21,22 @@ public class Example1 {
 
            //write code here to parse the json
 
-            //print all the platforms
+    List<Map<String, ?>> platformsList = (List<Map<String, ?>>) jsonObject.get("platforms");
+    for (int i = 0; i < platformsList.size(); i++) {
 
 
-        } catch (FileNotFoundException e) {
+        System.out.println(platformsList.get(i).get("id").toString());
+        System.out.println(platformsList.get(i).get("name").toString());
+
+
+        //print all the platforms
+
+
+    }
+
+}
+
+catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -31,4 +44,6 @@ public class Example1 {
             e.printStackTrace();
         }
     }
-}
+
+
+    }
